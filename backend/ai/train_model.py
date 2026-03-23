@@ -5,9 +5,13 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 import joblib
 import os
+import sys
 
 MODEL_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(MODEL_DIR, "vulnerability_model.pkl")
+
+# Add backend root to path to allow importing app module
+sys.path.insert(0, os.path.dirname(MODEL_DIR))
 
 def generate_synthetic_data(num_samples=1000):
     """
